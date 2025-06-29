@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_PLATFORM_API_URL=http://platform-core:8000
+    depends_on:
+      - platform-core
+    volumes:
+      - .:/app
+      - /app/node_modules
